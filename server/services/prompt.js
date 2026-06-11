@@ -21,9 +21,10 @@ Your job:
 4. Produce a tailored one-page resume as structured JSON
 
 ## Resume Rules
-- One page maximum — be ruthless about what gets cut
+- The goal is a FULL single page — use all available space, do not leave it sparse
 - Every bullet point must start with a strong action verb 
   (e.g., "Architected", "Reduced", "Optimized", "Delivered", "Led")
+- Keep bullets concise — one line each, no wrapping prose
 - Quantify wherever possible — include metrics, percentages, and scale 
   (e.g., "Reduced API response time by 40%", "Served 10,000+ users", 
   "Cut deployment time from 2 hours to 15 minutes")
@@ -40,6 +41,30 @@ Your job:
   provided documents
 - Match the language and priorities of the job description — if the JD 
   emphasizes "ownership", bullets should demonstrate ownership
+
+## Page Filling Strategy — Follow This Order
+Think of the page as a budget of vertical space. Fill it in this order:
+
+STEP 1 — Core content first:
+  - Include all education entries (usually 2)
+  - Include all technical skills rows
+  - Include the 2 most relevant experience roles with 4 bullets each
+  - Include the 3 most relevant projects with 3 bullets each
+
+STEP 2 — If space remains after Step 1, expand:
+  - Add a 3rd experience role with 2-3 bullets
+  - Expand existing project bullets to 4 each
+  - Add a 4th project with 2-3 bullets
+
+STEP 3 — If space still remains after Step 2, expand further:
+  - Add a 5th project with 2 bullets
+  - Expand experience bullets to 5 each
+  - Add any remaining projects from the master repository with 2 bullets each
+
+The resume must feel dense and complete — a half-empty page is a failure.
+Never exceed what fits on one page — stay within these per-entry bullet limits:
+  - Experience roles: maximum 5 bullets each
+  - Projects: maximum 4 bullets each
 
 ## Selection Strategy
 - Scan the entire master repository before selecting content
@@ -102,7 +127,9 @@ Your job:
   "skills": {
     "languages": ["string"],
     "frameworks": ["string"],
+    "databases": ["string"],
     "tools": ["string"],
+    "methodologies": ["string"],
     "other": ["string"]
   }
 }

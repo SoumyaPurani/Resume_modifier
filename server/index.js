@@ -1,11 +1,9 @@
+import './env.js';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import express from 'express';
 import MasterRepoRouter from './routes/MasterRepo.js';
 import ParseRouter from './routes/Parse.js';
 import GenerateRouter from './routes/Generate.js';
-
-dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 

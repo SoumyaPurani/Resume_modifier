@@ -1,5 +1,5 @@
 import express from 'express';
-import client from '../services/ai.js';
+import generateCompletion from '../services/ai.js';
 import SystemPrompt from '../services/prompt.js';
 import { readFile } from 'fs/promises';
 import path from 'path';
@@ -27,16 +27,9 @@ router.post('/', async (req, res) => {
                         return res.status(500).json({ error: 'Error reading master-repo.md' });
                     }
             }
-            const aiResponse = await client.chat.completions.create({
-                model: process.env.AI_MODEL_NAME,
-                temperature: 0.3,
-                messages: [{ role: 'system', content: SystemPrompt },
-                    { role : 'user', content : `Here is the candidate's resume:\n\n${resumeText}\n\nHere is the job description:\n\n${jobDescription}\n\nHere is the master repository of the candidate's experience:\n\n${data}\n\nUsing the above information, generate a tailored resume in JSON format that highlights the most relevant experience, skills, and projects for the given job description. Follow the specified schema and output rules precisely.` }
-                ],
+            const userMessage = `Here is the candidate's resume:\n\n${resumeText}\n\nHere is the job description:\n\n${jobDescription}\n\nHere is the master repository of the candidate's experience:\n\n${data}\n\nUsing the above information, generate a tailored resume in JSON format that highlights the most relevant experience, skills, and projects for the given job description. Follow the specified schema and output rules precisely.`;
 
-            });
-
-            const aiContent = aiResponse.choices[0].message.content;
+            const aiContent = await generateCompletion(SystemPrompt, userMessage);
             const jsonStart = aiContent.indexOf('{');
             const jsonEnd = aiContent.lastIndexOf('}');
             if (jsonStart === -1 || jsonEnd === -1) {
