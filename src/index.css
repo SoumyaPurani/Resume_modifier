@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+@import "tailwindcss";
+html {
+  font-family: "Google Sans Flex", system-ui;
+  height: 100%;
+  background-color: white;
+}
+
+body {
+  font-family: "Black Ops One", system-ui;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
