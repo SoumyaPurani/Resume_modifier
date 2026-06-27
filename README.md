@@ -53,8 +53,8 @@ You keep one master file with everything you've ever done. For each application,
 ### 1. Clone
 
 ```bash
-git clone https://github.com/SoumyaPurani/resume-modifier.git
-cd resume-modifier
+git clone https://github.com/SoumyaPurani/Resume_modifier.git
+cd Resume_modifier
 ```
 
 ### 2. Install dependencies
