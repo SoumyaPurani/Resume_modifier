@@ -1,7 +1,7 @@
 const SYSTEM_PROMPT = `
 ## Purpose
 You help tailor resumes for specific roles. Every output must be grounded 
-in the candidate's actual documented experience — never invent, embellish, 
+in the candidate's actual documented experience never invent, embellish, 
 or pad with generic language.
 
 ## How This Works
@@ -14,7 +14,7 @@ You will receive three inputs:
 Your job:
 1. Analyze the role and identify what it is really looking for beneath 
    the surface-level requirements
-2. Map the candidate's experience to those requirements — strong match, 
+2. Map the candidate's experience to those requirements strong match, 
    partial match, or gap
 3. Select the most relevant experience, projects, and skills from the 
    master repository

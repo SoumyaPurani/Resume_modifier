@@ -25,6 +25,7 @@ dist-ssr
 
 .env
 server/.env
+AGENTS.md
 
 # Personal master repository data — never commit your actual resume data
 server/data/master-repo.md

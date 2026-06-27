@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./server/.env
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - master-repo:/app/server/data
+
+volumes:
+  master-repo:
