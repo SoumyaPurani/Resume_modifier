@@ -37,6 +37,7 @@ You keep one master file with everything you've ever done. For each application,
 | PDF parsing | `pdfjs-dist` |
 | DOCX parsing | `mammoth` |
 | File uploads | `multer` |
+| Container | Docker (multi-stage, `node:22-alpine`) |
 
 ---
 
@@ -130,6 +131,25 @@ npm run dev
 
 Then open [http://localhost:5173](http://localhost:5173).
 
+### Docker
+
+Make sure `server/.env` has your AI credentials, then:
+
+```bash
+docker compose up --build
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+The container builds the frontend in a first stage, installs only production server deps in a second, and copies just `dist/` + `server/` into a minimal `node:22-alpine` runner with a non-root user. Your `master-repo.md` is persisted across restarts via a named Docker volume.
+
+To run without compose:
+
+```bash
+docker build -t resume-modifier .
+docker run -p 3000:3000 --env-file ./server/.env -e NODE_ENV=production -e PORT=3000 resume-modifier
+```
+
 ---
 
 ## How to use
@@ -177,7 +197,10 @@ resume-modifier/
 ├── public/
 │   └── favicon.svg
 ├── package.json
-└── vite.config.js
+├── vite.config.js
+├── Dockerfile
+├── docker-compose.yml
+└── .dockerignore
 ```
 
 ---
