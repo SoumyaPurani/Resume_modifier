@@ -20,11 +20,9 @@ RUN addgroup -g 1001 appgroup && adduser -u 1001 -G appgroup -s /bin/sh -D appus
 
 WORKDIR /app
 
-COPY --from=builder /app/dist ./dist
-COPY --from=server-deps /server/node_modules ./server/node_modules
-COPY server ./server
-
-RUN chown -R appuser:appgroup /app
+COPY --chown=appuser:appgroup --from=builder /app/dist ./dist
+COPY --chown=appuser:appgroup --from=server-deps /server/node_modules ./server/node_modules
+COPY --chown=appuser:appgroup server ./server
 
 ENV NODE_ENV=production
 ENV PORT=3000
